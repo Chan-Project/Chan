@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"./tokenizer"
+)
 
 func main()  {
-	fmt.Println("Hello World!")
+	tokenizer.Tokenize("Et salut toi, aimerais-tu une glace chocolatée ?")
 }
