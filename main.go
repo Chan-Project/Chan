@@ -2,8 +2,9 @@ package main
 
 import (
 	"./tokenizer"
+	"fmt"
 )
 
 func main()  {
-	tokenizer.Tokenize("Et salut toi, aimerais-tu une glace chocolatée ?")
+	fmt.Println(tokenizer.Tokenize("Et salut toi, aimerais-tu une glace chocolatée ?"))
 }
