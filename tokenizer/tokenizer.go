@@ -16,10 +16,10 @@ func Tokenize(token string) []string{
 // Text preprocessing
 func normalize(value string) string{
 	value = regexp.MustCompile("(?i)[èéêë]").ReplaceAllString(value, "e")
-	value = regexp.MustCompile("(?i)[àáâäãå]").ReplaceAllString(value, "e")
+	value = regexp.MustCompile("(?i)[àáâäãå]").ReplaceAllString(value, "a")
 	value = regexp.MustCompile("(?i)[ç]").ReplaceAllString(value, "c")
 	value = regexp.MustCompile("(?i)[îï]").ReplaceAllString(value, "i")
-	value = regexp.MustCompile("[,?;.:/!§)(]").ReplaceAllString(value, "")
+	value = regexp.MustCompile("[',?;.:/!§)(]").ReplaceAllString(value, " ")
 	return value
 }
 

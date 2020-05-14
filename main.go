@@ -6,5 +6,5 @@ import (
 )
 
 func main()  {
-	fmt.Println(tokenizer.Tokenize("Et salut toi, aimerais-tu une glace chocolatée ?"))
+	fmt.Println(tokenizer.Tokenize("Vous avez fait vos preuves en gestion de projet pendant 3 ans minimum"))
 }
