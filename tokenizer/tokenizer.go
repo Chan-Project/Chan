@@ -7,10 +7,10 @@ import (
 	"strings"
 )
 
-func Tokenize(token string) []string{
+func Tokenize(token string){
 	token = normalize(strings.ToLower(token))
 	token2 := removeStopWords(token)
-	return token2
+	fmt.Println(token2)
 }
 
 // Text preprocessing
