@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	tokenizer.Tokenize("!!!!éçéstmoã")
+	tokenizer.Tokenize("!!!!éçés45456tmoã")
 }
