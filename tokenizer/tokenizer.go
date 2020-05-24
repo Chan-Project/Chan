@@ -23,7 +23,7 @@ func normalize(value string) string {
 		"(?i)[àáâäãå]":  "a",
 		"(?i)[ç]":       "c",
 		"(?i)[îï]":      "i",
-		"[',?;.:/!§)(]": "",
+		"[',?;.:/!§)(]": " ",
 		"[\\d]":         ""} {
 		value = regexp.MustCompile(i).ReplaceAllString(value, v)
 	}

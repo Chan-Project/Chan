@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	tokenizer.Tokenize("Chez Jean-Claude 498")
+	tokenizer.Tokenize("Gestion d'un projet")
 }
