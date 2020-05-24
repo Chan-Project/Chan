@@ -21,19 +21,18 @@ func normalize(value string) string {
 	return value
 }
 
-func removeStopWords(value string) []string {
+func removeStopWords(value string) (nl []string) {
 	fmt.Println(value)
 	data, err := ioutil.ReadFile("./tokenizer/stopwords/french.txt")
 	if err != nil {
 		return nil
 	}
-	var nl []string
 	for _, v := range strings.Split(value, " ") {
 		if !contains(v, strings.Split(string(data), "\n")) {
 			nl = append(nl, v)
 		}
 	}
-	return nl
+	return
 }
 
 func contains(value string, array []string) bool {
