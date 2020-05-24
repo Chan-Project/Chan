@@ -2,15 +2,18 @@ package tokenizer
 
 import (
 	"fmt"
+	"github.com/kljensen/snowball"
+	"github.com/labstack/gommon/log"
 	"io/ioutil"
 	"regexp"
 	"strings"
 )
 
-func Tokenize(token string) {
-	token = normalize(strings.ToLower(token))
-	token2 := removeStopWords(token)
-	fmt.Println(token2)
+func Tokenize(originalString string) {
+	originalString = normalize(strings.ToLower(originalString))
+	originalString = stemmer(originalString, "french")
+	token := removeStopWords(originalString)
+	fmt.Println(token)
 }
 
 // Text preprocessing
@@ -21,8 +24,7 @@ func normalize(value string) string {
 		"(?i)[ç]":       "c",
 		"(?i)[îï]":      "i",
 		"[',?;.:/!§)(]": "",
-		"[\\d]":         "",
-	} {
+		"[\\d]":         ""} {
 		value = regexp.MustCompile(i).ReplaceAllString(value, v)
 	}
 	return value
@@ -55,4 +57,14 @@ func displayArray(array []string) {
 	for _, v := range array {
 		fmt.Printf("* %s\n", v)
 	}
+}
+
+// Stemmer function handler kljensen
+func stemmer(str, lang string) (data string) {
+	data, err := snowball.Stem(str, lang, false)
+	if err != nil {
+		log.Fatal("Error during the stemming", err)
+		return
+	}
+	return
 }
