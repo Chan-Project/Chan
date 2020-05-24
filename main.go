@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	tokenizer.Tokenize("Je ne mange pas de koala ! 459")
+	tokenizer.Tokenize("Chez Jean-Claude 498")
 }
