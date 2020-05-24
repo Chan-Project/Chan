@@ -15,11 +15,9 @@ func Tokenize(token string) {
 
 // Text preprocessing
 func normalize(value string) string {
-	value = regexp.MustCompile("(?i)[èéêë]").ReplaceAllString(value, "e")
-	value = regexp.MustCompile("(?i)[àáâäãå]").ReplaceAllString(value, "a")
-	value = regexp.MustCompile("(?i)[ç]").ReplaceAllString(value, "c")
-	value = regexp.MustCompile("(?i)[îï]").ReplaceAllString(value, "i")
-	value = regexp.MustCompile("[',?;.:/!§)(]").ReplaceAllString(value, " ")
+	for i, v := range map[string]string{"(?i)[èéêë]": "e", "(?i)[àáâäãå]": "a", "(?i)[ç]": "c", "(?i)[îï]": "i", "[',?;.:/!§)(]": ""} {
+		value = regexp.MustCompile(i).ReplaceAllString(value, v)
+	}
 	return value
 }
 
