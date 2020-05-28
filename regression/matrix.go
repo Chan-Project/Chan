@@ -1,4 +1,4 @@
-package model
+package regression
 
 type Matrix []float64
 
